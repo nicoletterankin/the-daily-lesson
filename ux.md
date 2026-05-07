@@ -1,371 +1,398 @@
 # Curious Kelly — UX Design
 
-*Design for kellyai.com/learn and kellyai.com/studio. Anchored in the three-plane architecture from product-spec §1: Kelly (back), Modal (middle), User (front).*
+*Design for kellyai.com/learn and kellyai.com/studio. Corrected 2026-05-07 to match Kelly-as-wallpaper architecture (see `spec-updates.md`).*
 
 ---
 
-## Design principles (the constraints all screens obey)
+## The architectural commitment
 
-1. **3-second rule.** From URL hit to Kelly's first word: ≤3s. No splash, no signup gate, no cookie banner. Anyone, anywhere, on day 1.
-2. **One concept per screen.** No tabs. No nav. The lesson IS the page.
-3. **Gaze, not chrome.** Kelly looks at what matters. The user follows her eyes, not a UI label.
-4. **Touch the thing she's teaching.** The Modal plane is manipulable, not decorative. If you can see it, you can grab it.
-5. **No streaks. No notifications. No leaderboards.** The reward for finishing is closing the tab.
-6. **Close-the-tab as a feature.** End state explicitly invites you to leave. We don't farm session length.
+**Kelly is the screen.** Full-bleed 16:9 streamed video wallpaper, always. She never shrinks, never moves, never becomes a badge, never stacks. Think interactive YouTube Live Stream / Zoom call with the most advanced digital human — she fills the viewport for the entire lesson, you make eye contact with her continuously.
+
+Everything else — diagrams, controls, the timeline, the reflection prompt, even the goodbye — floats on top of her as **HUD overlays**. Overlays are bounded, edge-anchored, and **never cover her face**. The runtime knows where her face is (we're driving the lipsync; we have the keypoints) and enforces a face-region no-fly zone for every overlay.
+
+The three planes are not three windows side-by-side. They're three depths of one frame:
+
+| Depth | What it is | Coverage |
+|---|---|---|
+| **Kelly (back, wallpaper)** | 16:9 streamed video. Always full-bleed. | 100% of viewport, always. |
+| **Modal (middle, HUD widgets)** | Diagrams, sliders, timelines, cards. Float over Kelly. Snap to corner regions. | Per-widget ~40% max; combined ~60% max. Never the face. |
+| **User (front, controls)** | Mic, scrubber, track chip, calendar dots. Edge-anchored. | Minimal footprint. |
+
+---
+
+## Design principles
+
+1. **3-second rule.** URL hit to Kelly's first word ≤ 3s. No splash, no signup, no cookie banner.
+2. **Eye contact never broken.** Kelly's eyes are visible in every frame of every lesson. This is product-spec Bar F.
+3. **One concept per session.** No tabs, no nav, no module tree. Today's lesson is the unit.
+4. **Touch the thing she's teaching.** Modal widgets are manipulable, not decorative. Drag, scrub, tap-to-expand.
+5. **No streaks, notifications, leaderboards.** Ever.
+6. **Close-the-tab is a feature.** The end state explicitly invites you to leave.
+7. **Widgets snap; they don't free-float.** Five legal positions: top-left, top-right, bottom-left, bottom-right, chin-bar (centered, below face). Center is forbidden.
 
 ---
 
 ## Screen 1 — Arrival (t = 0 to 3s)
 
+The first frame is the same shape as the lesson, so Kelly's arrival doesn't jolt the geometry.
+
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  kellyai.com/learn                                           │
-│                                                              │
-│                                                              │
-│                                                              │
-│                                                              │
-│                  ◯  ◯  ◯  ◯  ◯                              │
-│             (calendar dots, today highlighted)               │
-│                                                              │
-│                                                              │
-│                  Day 127 · The bottleneck                    │
-│                                                              │
-│                                                              │
-│                  Kelly is arriving…                          │
-│                                                              │
-│                                                              │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  ●─○─○─○─○                                          ⌄ Learn EN  │  ← user-plane chrome
+│   ↑                                                              │     (calendar dots TL,
+│  (calendar dots, today highlighted)                              │      track chip TR)
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│              [black, fading to Kelly's first frame]              │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │  Day 127 · The bottleneck                                  │ │  ← chin-bar overlay
+│  │  Kelly is arriving…                                        │ │     (will dismiss when
+│  └────────────────────────────────────────────────────────────┘ │      Kelly speaks)
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-- No login. No track picker yet (default = Learn; user can switch later).
-- Calendar dots are the only navigation: 5 visible, today is filled.
-- Title is set, never animated. Lesson is not a surprise — it's an appointment.
-- "Kelly is arriving…" is replaced by Kelly's video frame as soon as the WebRTC handshake completes. If it takes >3s, this text becomes the only failure surface (see Failure modes).
+- The viewport is 16:9. On non-16:9 displays (most laptops, all phones in portrait), letterbox to 16:9 with black bars. Kelly's framing is preserved across every device.
+- Calendar dots (top-left), track chip (top-right), title/status (chin-bar) are already in their final positions. When Kelly's video appears, the chrome stays put.
+- "Kelly is arriving…" lives in the chin-bar and is replaced by silence (and Kelly's gaze) once she's live.
 
 ---
 
 ## Screen 2 — Active lesson (the canonical view)
 
-This is where 95% of the session lives. Three planes, composed front-to-back.
+This is where ~95% of the session lives. **Kelly is everywhere. Modal widgets float on top of her, snapped to corner regions and chin-bar. Her face is never covered.**
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  Day 127 · The bottleneck                          ⌄ Learn  │  ← thin top bar (only chrome)
-├──────────────────────────────────────────────────────────────┤
-│                                                              │
-│                  ╭───────────────────╮                       │
-│                  │                   │                       │
-│                  │      KELLY        │   ← KELLY plane       │
-│                  │   (live stream)   │     (back)            │
-│                  │                   │                       │
-│                  ╰───────────────────╯                       │
-│                                                              │
-│         ┌──────────────────────────────────────┐            │
-│         │                                      │            │
-│         │   words ─────► sentences ─────► ...  │   ← MODAL  │
-│         │           ↑                          │     plane  │
-│         │     (Kelly's gaze lands here)        │     (mid)  │
-│         │                                      │            │
-│         │   [tap any node to expand]           │            │
-│         └──────────────────────────────────────┘            │
-│                                                              │
-│  ●━━━━━━━━━━━━━○─────────  3:42 / 7:00          🎙️  ⏸     │  ← USER plane
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  ●─○─○─○─○                                          ⌄ Learn EN  │
+│                                                                  │
+│                  ┌──────────────────────────┐                    │
+│                  │  words → sentences → …   │  ← Modal widget,   │
+│                  │  [tap any node]          │     TR snap        │
+│                  └──────────────────────────┘                    │
+│                                                                  │
+│                                                                  │
+│                       KELLY (full-bleed)                         │
+│                                                                  │
+│                ╔═══════════════════════════╗                     │
+│                ║   ←   FACE NO-FLY ZONE  → ║   ← runtime-enforced │
+│                ║   (no overlay enters)     ║     bounds (invisible │
+│                ╚═══════════════════════════╝     to the user)    │
+│                                                                  │
+│                                                                  │
+│  ┌────────────┐                                                  │
+│  │ Recovery   │                                                  │
+│  │ from error │  ← Modal widget, BL snap                         │
+│  │ (counter)  │     (only ~25% of viewport)                      │
+│  └────────────┘                                                  │
+│                                                                  │
+│  ●━━━━━━━━━━○──────────────  3:42 / 7:00          🎙️  ⏸        │  ← user-plane,
+└──────────────────────────────────────────────────────────────────┘     chin-bar
 ```
 
-### What each plane does
+### What you see
+- Kelly is the wallpaper. She is making eye contact with you.
+- A diagram widget ("words → sentences → …") snapped to TR. Kelly's gaze flicks to it as she introduces it; her gesture points to its general direction.
+- A counter widget ("Recovery from error") snapped to BL — appears later in the lesson, once she introduces the concept.
+- Bottom edge: timeline scrubber + mic + pause. The timeline lives below the face naturally — no risk of occlusion.
+- Top edge: calendar dots and track chip stay where they were on arrival.
 
-| Plane | Role | Interaction |
-|---|---|---|
-| **Kelly (back)** | Live AI teacher, streaming MuseTalk-rendered video. Gaze, gesture, posture. | Read-only. She talks; you listen or interrupt. |
-| **Modal (middle)** | The diorama. Diagrams, equations, timelines, maps, sliders. | **Touch, drag, scrub, tap to expand.** Choreographed to Kelly's words. |
-| **User (front)** | Timeline, mic, pause. Nothing else. | Tap mic to interrupt. Drag scrubber to revisit. |
+### What you don't see
+- The face no-fly zone is invisible. The layout engine just refuses to place any widget inside it. If a widget would land there, it slides to the nearest legal snap point.
+- Widgets don't free-float. They snap. This bounds creator chaos in Studio and learner cognitive load.
 
-### Why Kelly is small and centered, not full-bleed
-
-Full-bleed avatar = TV mode = passive. The lesson is a conversation around an artifact. The artifact (Modal plane) gets the visual weight; Kelly is the teacher pointing at it. Kelly's frame hovers above-and-behind so her gaze can credibly land on the diagram beneath her.
+### Widget budget
+Default: max 3 simultaneous widgets. Studio allows up to 5 with a warning. More than 5 would force overlap and increase no-fly-zone risk.
 
 ---
 
 ## Screen 3 — User interrupts (mic active)
 
+Tap mic. **Kelly stays full-bleed.** Her lipsync freezes within ~150ms; her eyes shift to lock onto you (gaze cue: "I'm listening"). Modal widgets dim to ~30% but stay visible — you might be pointing at one. Live transcript appears in a chin-bar overlay.
+
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  Day 127 · The bottleneck                          ⌄ Learn  │
-├──────────────────────────────────────────────────────────────┤
-│                                                              │
-│                  ╭───────────────────╮                       │
-│                  │      KELLY        │                       │
-│                  │  (paused, eyes    │   ← Kelly visibly     │
-│                  │   on the user)    │     stops, listens    │
-│                  ╰───────────────────╯                       │
-│                                                              │
-│         ┌──────────────────────────────────────┐            │
-│         │   words ─────► sentences ─────► ...  │  ← Modal    │
-│         │   (dimmed 30%, frozen)               │    holds    │
-│         └──────────────────────────────────────┘            │
-│                                                              │
-│       ╔══════════════════════════════════════╗              │
-│       ║  ▓▓▓▓▓░░░  "wait, what does recovery ║              │
-│       ║              from error mean?"        ║              │
-│       ╚══════════════════════════════════════╝              │
-│                                                              │
-│  ●━━━━━━━━━━━━━○─────────  3:42 / 7:00         🔴  ⏸       │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  ●─○─○─○─○                                          ⌄ Learn EN  │
+│                                                                  │
+│                  ┌──────────────────────────┐                    │
+│                  │  words → sentences → …   │  ← dimmed 30%      │
+│                  └──────────────────────────┘                    │
+│                                                                  │
+│                                                                  │
+│                       KELLY (listening,                          │
+│                        eyes on user)                             │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│  ┌────────────┐                                                  │
+│  │ Recovery   │  ← dimmed 30%                                    │
+│  │ from error │                                                  │
+│  └────────────┘                                                  │
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │  ▓▓▓▓▓▓░░  "wait, what does recovery from error mean?"     │ │  ← chin-bar:
+│  └────────────────────────────────────────────────────────────┘ │     live transcript
+│  ●━━━━━━━━━━○──────────────  3:42 / 7:00         🔴  ⏸          │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-- Tap mic → Kelly's lipsync freezes within ~150ms, eyes shift to user (gaze cue: "I'm listening").
-- Live transcript appears in the user-plane band. This is the only time live text appears on screen.
-- Modal dims but stays visible — the user might be pointing at it ("this node here, what does it mean?").
-- On end-of-utterance, Kelly resumes from a Q-handling state, not from where she paused. The lesson timeline holds.
+- Live transcript is the only place text-from-user appears on screen.
+- On end-of-utterance, Kelly's mouth re-engages from a Q-handling state. The lesson timeline holds (the scrubber doesn't advance during the interrupt).
 
 ---
 
-## Screen 4 — User touches the Modal
+## Screen 4 — User touches a widget
+
+Tap a node in the diagram widget → it expands **inside the widget's snap region.** No modal dialog, no full-screen takeover, no occlusion of Kelly.
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│         ┌──────────────────────────────────────┐            │
-│         │                                      │            │
-│         │   words ─────► [SENTENCES] ─────► ..│            │
-│         │                  ▲                   │            │
-│         │              ┏━━━┻━━━━━━━━━┓         │            │
-│         │              ┃ a string of  ┃        │            │
-│         │              ┃ words with   ┃        │            │
-│         │              ┃ a verb       ┃        │            │
-│         │              ┗━━━━━━━━━━━━━━┛        │            │
-│         │              (expanded on tap)       │            │
-│         └──────────────────────────────────────┘            │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  ●─○─○─○─○                                          ⌄ Learn EN  │
+│                                                                  │
+│              ┌──────────────────────────────────┐                │
+│              │  words → [SENTENCES] → …          │                │
+│              │             ▲                     │  ← widget      │
+│              │       ┏━━━━━┻━━━━━━━┓             │     expanded   │
+│              │       ┃ a string of  ┃            │     in place,  │
+│              │       ┃ words with a ┃            │     bounded    │
+│              │       ┃ verb         ┃            │     within     │
+│              │       ┗━━━━━━━━━━━━━━┛            │     ~40%       │
+│              └──────────────────────────────────┘                │
+│                                                                  │
+│                       KELLY (acknowledging:                      │
+│                        "right — sentences.")                     │
+│                                                                  │
+│                                                                  │
+│  ●━━━━━━━━━━○──────────────  3:42 / 7:00          🎙️  ⏸        │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-- Tap a node → it expands in place. No modal dialog, no overlay. The diagram IS the substrate.
-- Kelly notices (the runtime emits a `modal_touch` event) and her next sentence acknowledges it: "right — sentences. that's where most learners think fluency lives. it doesn't."
-- Drag the timeline scrubber on the Modal plane → Kelly silences, the diorama rewinds, you can replay any 10-second beat. Release scrubber → Kelly resumes.
+- Tap-to-expand happens **within the widget's bounding box.** If the expansion would breach the no-fly zone or exceed 40% of the viewport, the widget pops to a larger but still-bounded box on the same edge.
+- The runtime emits `modal_touch` with the node's identity. Kelly's next sentence acknowledges it ("right — sentences.").
+- Drag the timeline scrubber → Kelly silences, widgets rewind their state with the lesson, you can replay any 10-second beat. Release → Kelly resumes.
 
 ---
 
 ## Screen 5 — Reflection prompt (the close)
 
-Around minute 6:30, Kelly steps out of the canvas and asks the one question.
+Around minute 6:30, Kelly steps out of the canvas and asks the one question. **She is still full-bleed and looking at you.** Modal widgets dismiss. The prompt appears as a chin-bar overlay.
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  Day 127 · The bottleneck                          ⌄ Learn  │
-├──────────────────────────────────────────────────────────────┤
-│                                                              │
-│                                                              │
-│                  ╭───────────────────╮                       │
-│                  │      KELLY        │                       │
-│                  │ (centered, full   │  ← Modal plane fades  │
-│                  │   attention)      │    to background      │
-│                  ╰───────────────────╯                       │
-│                                                              │
-│                                                              │
-│        "What's one error you'll let yourself                 │
-│         make in your target language today?"                 │
-│                                                              │
-│         ┌──────────────────────────────────────┐            │
-│         │  type, or hold mic to speak…         │            │
-│         └──────────────────────────────────────┘            │
-│                                                              │
-│  ●━━━━━━━━━━━━━━━━━━━━━━━━━●  6:42 / 7:00                  │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  ●─○─○─○─○                                          ⌄ Learn EN  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                       KELLY (looking at you,                     │
+│                        asking the question)                      │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │  "What's one error you'll let yourself                     │ │
+│  │   make in your target language today?"                     │ │  ← chin-bar
+│  │                                                            │ │     (prompt)
+│  │  [ type, or hold mic to speak ]            [ skip ]        │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│  ●━━━━━━━━━━━━━━━━━━━━━━━━━●  6:42 / 7:00                       │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-- Modal fades to ~10% opacity. The question gets the room.
+- Modal widgets dismiss (slide off-edge in their snap direction). Kelly does not move; the screen just gets quieter.
+- Kelly's gaze is locked on the user — the question is a person asking, not a form prompt.
+- Skip is first-class. Tap skip → straight to end state. No penalty, no reminder, no "are you sure?"
 - Answer is private to the user. Stored locally by default. Only shared with Kelly's session for in-context follow-up.
-- Skipping is a first-class action (`skip` button, no penalty, no reminder). The reflection is offered, not enforced.
 
 ---
 
-## Screen 6 — End state (the explicit goodbye)
+## Screen 6 — End state (the goodbye)
+
+**Kelly is still on screen.** She says "that's the lesson" out loud. The two affordances appear as overlay buttons.
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                                                              │
-│                                                              │
-│                                                              │
-│                   That's the lesson.                         │
-│                                                              │
-│              You're done for today.                          │
-│                                                              │
-│                                                              │
-│         ┌──────────────────────┐  ┌────────────────┐        │
-│         │  Close the tab       │  │  Tomorrow →    │        │
-│         └──────────────────────┘  └────────────────┘        │
-│                                                              │
-│         (Day 128 unlocks at midnight your time)              │
-│                                                              │
-│                                                              │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│                       KELLY (smiling, saying                     │
+│                        "that's the lesson —                      │
+│                         you're done for today.")                 │
+│                                                                  │
+│                                                                  │
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │  That's the lesson. You're done for today.                 │ │  ← chin-bar copy
+│  │                                                            │ │
+│  │  [ Close the tab ]              [ Tomorrow → ]             │ │
+│  │                                                            │ │
+│  │  Day 128 unlocks at midnight your time.                    │ │
+│  └────────────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-- "Close the tab" is a real button. Tap it, the page closes (or attempts to via `window.close()`; if blocked, navigates to `about:blank`).
+- "Close the tab" is a real button. `window.close()` first; on browsers that block it, navigate to `about:blank` with the same copy still visible briefly.
 - "Tomorrow →" is *disabled* until midnight local. We don't let users binge ahead.
-- No "share your streak." No "you've learned 12 days in a row!" No notification opt-in.
-- This screen is the product's most heretical surface. It's the one that proves the rest.
+- Kelly fades out only after the user takes one of the two actions. The default is silence and her presence — we don't push.
+- No "share your streak." No "you've learned 12 days in a row." No notification opt-in. Ever.
 
 ---
 
-## Screen 7 — Track picker (the only nav surface)
+## Screen 7 — Track picker
 
-Tapping the `⌄ Learn` chip in the top bar reveals:
+Tapping the `⌄ Learn` chip in the top-right. Single floating overlay; **Kelly stays full-bleed behind it.**
 
 ```
-                       ┌─────────────────────────────┐
-                       │                             │
-                       │   ◉ Learn                   │
-                       │     The 365 most important  │
-                       │     things to know          │
-                       │                             │
-                       │   ◯ Grow                    │
-                       │     AI fluency for          │
-                       │     the next decade         │
-                       │                             │
-                       │   ─────────────────────     │
-                       │                             │
-                       │   Language: English ⌄       │
-                       │   25 available              │
-                       │                             │
-                       └─────────────────────────────┘
+                                          ┌─────────────────────────────┐
+                                          │  ◉ Learn                    │
+                                          │    The 365 most important   │
+                                          │    things to know           │
+                                          │                             │
+                                          │  ◯ Grow                     │
+                                          │    AI fluency for the       │
+                                          │    next decade              │
+                                          │                             │
+                                          │  ─────────────────────────  │
+                                          │                             │
+                                          │  Language: English ⌄        │
+                                          │  25 available               │
+                                          └─────────────────────────────┘
 ```
 
-- Two tracks. That's it. Future tracks slot in here without redesign.
-- Language switch re-routes the WebRTC session to a track-language Kelly. No translation overlay; the lesson is taught natively in 25 languages.
-- Pinned to top-right because it's the only persistent affordance.
+- Snaps to TR. ~30% of viewport. Doesn't enter the face no-fly zone (TR snap region is above-and-right of the face by definition).
+- Language switch re-routes the WebRTC session to a track-language Kelly. No translation overlay; the lesson is taught natively.
 
 ---
 
 # The Studio — kellyai.com/studio
 
-The creator surface. One canvas. Four primitives. No mode-switching.
+The creator authoring surface. **The creator's avatar is full-bleed in the preview**, exactly like Kelly is in `/learn`. Same Bar F applies — Studio's layout engine refuses to place a widget over the creator's face.
 
 ## Studio canonical view
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  ◀ My Lessons    "The bottleneck"        [Preview]  [Publish]   │
-├──────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌────────────┐  ┌────────────────────────────────────────────┐ │
-│  │            │  │                                            │ │
-│  │  SCRIPT    │  │              UNIFIED CANVAS                │ │
-│  │            │  │                                            │ │
-│  │  Hook      │  │     ╭─────────────╮                        │ │
-│  │  ─────     │  │     │   YOU       │                        │ │
-│  │  Most…     │  │     │  (avatar)   │                        │ │
-│  │  ▍         │  │     ╰─────────────╯                        │ │
-│  │            │  │                                            │ │
-│  │  Story     │  │     ┌────────────────────────┐            │ │
-│  │  ─────     │  │     │ words → sentences → … │            │ │
-│  │  In ling…  │  │     │       (Modal aid)      │            │ │
-│  │            │  │     └────────────────────────┘            │ │
-│  │  Wonder    │  │                                            │ │
-│  │  ──────    │  │  ┌─────────────────────────────────────┐  │ │
-│  │  What if…  │  │  │  ⊕ Generate  ⇪ Import  ▦ Compose  ✎ │  │ │
-│  │            │  │  │                              Refine │  │ │
-│  │  Action    │  │  └─────────────────────────────────────┘  │ │
-│  │  ──────    │  │       (four primitives, always visible)   │ │
-│  │  Today,…   │  │                                            │ │
-│  │            │  │                                            │ │
-│  └────────────┘  └────────────────────────────────────────────┘ │
-│                                                                  │
-│  ●━━━━━━━━━●━━━━━●━━━━━━━●━━━━━━━ 0:00 ──────── 7:00            │
-│   Hook    Story  Wonder  Action  Wisdom    (timeline)            │
-└──────────────────────────────────────────────────────────────────┘
+│  ◀ My Lessons    "The bottleneck"        [ Preview ] [ Publish ] │
+├──────────────────┬───────────────────────────────────────────────┤
+│                  │                                               │
+│  SCRIPT          │              CREATOR'S AVATAR                 │
+│  (collapsible)   │              (full-bleed preview)             │
+│                  │                                               │
+│  Hook            │      ┌──────────────────────┐                 │
+│  ─────           │      │ words → sentences    │ ← widget        │
+│  Most people…    │      └──────────────────────┘   (TR snap)     │
+│                  │                                               │
+│  Story           │                                               │
+│  ─────           │                                               │
+│  In linguistics… │              [creator's face]                 │
+│                  │              (no-fly zone)                    │
+│  Wonder          │                                               │
+│  ──────          │                                               │
+│  What if…        │                                               │
+│                  │                                               │
+│  Action          │                                               │
+│  ──────          │                                               │
+│  Today…          │  ┌─────────────────────────────────────────┐ │
+│                  │  │  ⊕ Generate  ⇪ Import  ▦ Compose  ✎ Refine│  ← floating
+│  Wisdom          │  └─────────────────────────────────────────┘ │     primitive bar
+│  ──────          │       (HUD over the avatar, chin-bar zone)    │
+│  Fluency is…     │                                               │
+│                  │  ●━━●━━●━━●━━●─────────  0:00 ── 7:00          │
+│                  │   Hk Sy Wn Ac Wi  (timeline, lesson sections)  │
+└──────────────────┴───────────────────────────────────────────────┘
 ```
 
-### The four primitives
-
-| Primitive | What it does | When you reach for it |
-|---|---|---|
-| **⊕ Generate** | Cloud diffusion (~$0.001/image) creates a new aid from a text prompt. | "I need a diagram of the water cycle." |
-| **⇪ Import** | Drop in an SVG, image, video, or URL. Snaps to the canvas grid. | "I already have a diagram from class." |
-| **▦ Compose** | Drag-arrange existing nodes. Connect with arrows. Group, layer, animate. | "I want this node to appear when I say 'sentences'." |
-| **✎ Refine** | Edit any aid in place: text, color, position, motion. | "Make that arrow bolder." |
-
-These four are always visible at the bottom of the canvas. No mode toggle. Tap a primitive, the canvas accepts that kind of input. Tap another, the canvas accepts that kind. Switching is instant.
-
-### Script ↔ Canvas binding
-
-The left column is the lesson script — five sections (Hook, Story, Wonder, Action, Wisdom), the same shape as every Daily Lesson. The script is *time*, the canvas is *space*. Drag a Modal aid onto a script section → it appears when the avatar speaks that section. Drag it onto the timeline directly → finer control, frame-level.
+### What's true here
+- **The avatar fills the right column** (preview pane). When the creator collapses the script column, the avatar fills the entire viewport — exactly the published-lesson view.
+- The four primitives (⊕ Generate / ⇪ Import / ▦ Compose / ✎ Refine) live as a floating HUD bar in the chin-bar zone. Always visible. No mode switch.
+- Widgets the creator places snap to the same five regions (TL/TR/BL/BR/chin-bar). The layout engine prevents face occlusion automatically — the creator can't accidentally publish a lesson where their own face is covered.
+- Script column is the *only* non-overlay UI in Studio. Collapse it for full-bleed preview at any time.
 
 ### Avatar capture (one time, ever)
 
-First time in Studio:
-
 ```
-┌──────────────────────────────────────────────────────────────┐
-│   Record your avatar                                          │
-│                                                               │
-│   We need 5 short clips. Same lighting, same wardrobe,        │
-│   one session. Total: ~3 minutes.                             │
-│                                                               │
-│       ╭──────────╮ ╭──────────╮ ╭──────────╮                 │
-│       │ neutral  │ │   left   │ │  right   │                 │
-│       │   ▓▓▓    │ │          │ │          │                 │
-│       ╰──────────╯ ╰──────────╯ ╰──────────╯                 │
-│       ╭──────────╮ ╭──────────╮                              │
-│       │   down   │ │ lean in  │                              │
-│       │          │ │          │                              │
-│       ╰──────────╯ ╰──────────╯                              │
-│                                                               │
-│   [Start recording]              Already done? [Re-capture]   │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│   Record your avatar                                              │
+│                                                                   │
+│   We need 5 short clips. Same lighting, same wardrobe,            │
+│   one session. Total: ~3 minutes. Frame yourself 16:9.            │
+│                                                                   │
+│       ╭──────────╮ ╭──────────╮ ╭──────────╮                     │
+│       │ neutral  │ │   left   │ │  right   │                     │
+│       │   ▓▓▓    │ │          │ │          │                     │
+│       ╰──────────╯ ╰──────────╯ ╰──────────╯                     │
+│       ╭──────────╮ ╭──────────╮                                  │
+│       │   down   │ │ lean in  │                                  │
+│       ╰──────────╯ ╰──────────╯                                  │
+│                                                                   │
+│   [ Start recording ]            Already done? [ Re-capture ]     │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-Five pose channels (neutral, left, right, down, lean_in) — exactly what the product spec §14 specifies for Kelly herself. Same bar applies to creators: validated at 100% on a large screen, three-place backup.
-
-After capture, you never see this screen again unless you tap "Re-capture."
+Same five pose channels as Kelly herself (product-spec §14): neutral, left, right, down, lean_in. Captured at 16:9, 1080p minimum, 4K preferred. Validated at 100% on a large screen.
 
 ### Publish
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│   Publish "The bottleneck"                                    │
-│                                                               │
-│   URL:  yourname.kellyai.com/the-bottleneck                   │
-│        (or use a custom domain — paid tier)                   │
-│                                                               │
-│   ☑ Free tier: 1 published lesson, watermarked                │
-│   ☐ Paid ($29/mo): unlimited, no watermark, custom domain     │
-│                                                               │
-│                                          [ Publish ]          │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│   Publish "The bottleneck"                                        │
+│                                                                   │
+│   URL:  yourname.kellyai.com/the-bottleneck                       │
+│         (or use a custom domain — paid tier)                      │
+│                                                                   │
+│   ☑ Free tier: 1 published lesson, watermarked                    │
+│   ☐ Paid ($29/mo): unlimited, no watermark, custom domain         │
+│                                                                   │
+│   Bar F check: face never occluded ✓                              │
+│   Widget budget: 3 used, 5 max ✓                                  │
+│   Total runtime: 6:54 (within 5–8 min target) ✓                   │
+│                                                                   │
+│                                          [ Publish ]              │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-One lesson free, watermarked, forever. Paid unlocks unlimited + custom domain. Same shape as the financial model — break-even at 3 paying creators.
+Pre-publish checks include the layout engine's Bar F verification — automatic, not manual.
 
 ---
 
-## Failure modes (where the design has to hold)
+## Failure modes
 
 | Failure | What the user sees |
 |---|---|
-| **Kelly takes >3s to arrive** | "Kelly is arriving…" persists. After 8s: "Kelly is having a slow morning. [Retry] or [Read the lesson]" — fallback to a static text/diagram version of today's lesson, same five sections. |
-| **WebRTC blocked by network** | Same fallback to static lesson. The daily lesson is never gated on streaming. |
-| **User has no mic permission** | Mic button shows `🚫`. Touching it offers a typed-input field. Lesson works without voice. |
-| **Local model fails Bar C (soul)** | Per Runbook D: Kelly falls back to a tighter, more scripted persona. The lesson still ships. |
-| **User's language not yet covered** | Track picker shows the 25 supported languages plus "Help us translate" for the rest. |
+| **Kelly takes >3s to arrive** | Chin-bar copy persists: "Kelly is arriving…". After 8s: "Kelly is having a slow morning. [Retry] · [Read the lesson]" — fallback to a static text/diagram version. The daily lesson is never gated on streaming. |
+| **WebRTC blocked by network** | Same fallback. |
+| **No mic permission** | Mic button shows `🚫`. Tapping it offers a typed-input field. Lesson works without voice. |
+| **Local model fails Bar C (soul)** | Per Runbook D: Kelly falls back to a tighter, more scripted persona. Lesson still ships. |
+| **Language not yet covered** | Track picker shows the 25 supported languages plus "Help us translate." |
+| **Display is portrait/non-16:9** | Letterbox to 16:9 with black bars top/bottom. Kelly's framing preserved across devices. No portrait-cropped Kelly stream — see `spec-updates.md` open question #3. |
 
 ---
 
 ## What this design is NOT
 
-- Not a Zoom call with an AI. Kelly is not a face on a tile.
-- Not a slide deck. The Modal plane is not slides advancing — it's a single living diorama.
+- Not a Zoom call with Kelly in a tile and a whiteboard next to her.
+- Not a video player with a chat sidebar.
+- Not a slide deck with Kelly inset in a corner badge.
 - Not a chatbot. Voice and text are interrupts to a structured lesson, not the lesson itself.
-- Not a course platform. There is no syllabus, no module tree, no "next up." Today's lesson is the unit.
+- Not a course platform. No syllabus, no module tree, no "next up." Today's lesson is the unit.
 - Not gamified. No XP, no streaks, no badges, no notifications, no email. Ever.
 
 ---
 
-## Open design questions (flag for founder)
+## Open design questions (flag for founder, see `spec-updates.md` for full list)
 
-1. **Calendar dots in top bar — show how many?** 5 feels right (3 past, today, 1 ahead-but-locked). 7 feels noisy. Validate with first 5 outside viewers (per ops-log Bar E).
-2. **Modal plane on mobile** — does it stack below Kelly, or does Kelly shrink to a corner badge? Six-device matrix test in week 12 (Bar D).
-3. **Studio's four primitives — order on the bar.** Generate-first reads as "AI tool." Compose-first reads as "design tool." Recommendation: Compose-first, because the primitive that gets used most often per session belongs leftmost.
-4. **End state's "Close the tab" — does it actually close the tab?** Browser security may block `window.close()` on tabs the user didn't open via script. Fallback: navigate to `about:blank` with the same copy.
+1. **Max widget coverage** — recommend 40% per widget, 60% combined.
+2. **Face no-fly zone geometry** — recommend ear-to-ear, forehead-to-chin, +10% padding.
+3. **Portrait/mobile** — letterbox to 16:9 (recommended) vs. portrait-cropped Kelly (more cost, separate capture session).
+4. **Widget snap regions** — TL, TR, BL, BR, chin-bar. Center forbidden. Confirm these five.
+5. **Max simultaneous widgets** — 3 default, 5 max for Studio. Confirm.
+6. **Calendar dots** — top-left, 5 dots. Confirm or alternate.
+7. **First-arrival pre-Kelly frame** — black with chin-bar title (recommended), so the geometry of arrival matches the geometry of the lesson.
