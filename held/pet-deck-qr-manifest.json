@@ -1,0 +1,1009 @@
+{
+ "deck": "pet",
+ "description": "HELD pet-loss deck print files: 52 cards x front+back JPGs in R2 bucket 'heldpress', served at media.held.press. QR on each back -> held.press/p/p{suit-letter}{n} -> card room.",
+ "verified_at": "2026-07-21",
+ "verification": {
+  "method": "zbar decode of every back at 100% and 50% scale; payload compared to expected shortlink; all 52 shortlink redirects and all 52 room pages checked live",
+  "qr_pass": 52,
+  "qr_fail": 0,
+  "shortlinks_ok": 52,
+  "rooms_live": 52,
+  "note": "The 'COLLIDING TILES' flag in older copies of state/shortcodes.json is STALE - the backs currently in R2 carry regenerated, collision-free QRs. Physical scan of printed proofs still pending (printed=false)."
+ },
+ "r2": {
+  "bucket": "heldpress",
+  "public_base": "https://media.held.press",
+  "alt_public_base": "https://pub-f7e3656e37ec4b4baa2758013c88f0cc.r2.dev",
+  "prefix": "cards/"
+ },
+ "cards": {
+  "pet-ground1": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 1,
+   "shortcode": "pg1",
+   "qr_payload": "https://held.press/p/pg1",
+   "room": "https://held.press/pet/ground/1/",
+   "front": {
+    "r2_key": "cards/pet-ground1-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground1-front.jpg",
+    "sha256": "1ad4fe25d7874bc8a4074a1dd4cb5b10facc563caf4799628ff9d9713d9758a9"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground1-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground1-back.jpg",
+    "sha256": "f3e9a061ae520694f3b8ee04fb97c89c5d6e3c2a285210c3bd29d7c17e40ca9d"
+   },
+   "qr_verified": true
+  },
+  "pet-ground2": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 2,
+   "shortcode": "pg2",
+   "qr_payload": "https://held.press/p/pg2",
+   "room": "https://held.press/pet/ground/2/",
+   "front": {
+    "r2_key": "cards/pet-ground2-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground2-front.jpg",
+    "sha256": "79188384815be7107fdd79c00d569ed3767630b100ea16f7823d31fe78d6da02"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground2-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground2-back.jpg",
+    "sha256": "cf67b16e994cb07bf6228517e1fa209f92a0d74de5d4a030038821102ae22d85"
+   },
+   "qr_verified": true
+  },
+  "pet-ground3": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 3,
+   "shortcode": "pg3",
+   "qr_payload": "https://held.press/p/pg3",
+   "room": "https://held.press/pet/ground/3/",
+   "front": {
+    "r2_key": "cards/pet-ground3-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground3-front.jpg",
+    "sha256": "966943dc4caa300d5b67d7c2e40361e241b73066f65fcadcd21a88a71837f2f3"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground3-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground3-back.jpg",
+    "sha256": "473d88f3dd68f05c37af79733c814940997d49a02bf012d163de76b520f6e256"
+   },
+   "qr_verified": true
+  },
+  "pet-ground4": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 4,
+   "shortcode": "pg4",
+   "qr_payload": "https://held.press/p/pg4",
+   "room": "https://held.press/pet/ground/4/",
+   "front": {
+    "r2_key": "cards/pet-ground4-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground4-front.jpg",
+    "sha256": "a738ed92861601c3b9105d94de4365882da5eb84b11556000150f28bdff054e7"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground4-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground4-back.jpg",
+    "sha256": "30e06e9d7e709a9670db394691abac60a6f7eb8b5ef0fc1035d3673c0e523a5e"
+   },
+   "qr_verified": true
+  },
+  "pet-ground5": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 5,
+   "shortcode": "pg5",
+   "qr_payload": "https://held.press/p/pg5",
+   "room": "https://held.press/pet/ground/5/",
+   "front": {
+    "r2_key": "cards/pet-ground5-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground5-front.jpg",
+    "sha256": "5b3b3b3abc854209bc7fca7aeb5081832c37bb019918900508f89b54436b81c8"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground5-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground5-back.jpg",
+    "sha256": "6ced18cb8171a0a79ef9754c72e2be0af70b69f11eaa10cc8c9ec0789491bf65"
+   },
+   "qr_verified": true
+  },
+  "pet-ground6": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 6,
+   "shortcode": "pg6",
+   "qr_payload": "https://held.press/p/pg6",
+   "room": "https://held.press/pet/ground/6/",
+   "front": {
+    "r2_key": "cards/pet-ground6-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground6-front.jpg",
+    "sha256": "8f11cc60a93c5986fcf02448bafdf3f408d6ab5661d57b1ae1684a41c56c955a"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground6-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground6-back.jpg",
+    "sha256": "5f349f3e50331ff31c8af951397e6c26394b0bda3453d85384e17884b5e10082"
+   },
+   "qr_verified": true
+  },
+  "pet-ground7": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 7,
+   "shortcode": "pg7",
+   "qr_payload": "https://held.press/p/pg7",
+   "room": "https://held.press/pet/ground/7/",
+   "front": {
+    "r2_key": "cards/pet-ground7-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground7-front.jpg",
+    "sha256": "6320e9f0c108cd0ca39eac34f0adb7d0454382c54d2d877058009bf8a20ca096"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground7-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground7-back.jpg",
+    "sha256": "7b4e3c3b0bc0b2c45f2c19f807e2795f4cd2ee866aabd0fd1ec07049fec2ac11"
+   },
+   "qr_verified": true
+  },
+  "pet-ground8": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 8,
+   "shortcode": "pg8",
+   "qr_payload": "https://held.press/p/pg8",
+   "room": "https://held.press/pet/ground/8/",
+   "front": {
+    "r2_key": "cards/pet-ground8-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground8-front.jpg",
+    "sha256": "74bb1ba2da157c39a6e95da0c56b4d6d791b5311b12e1c0d06148aa3cf600417"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground8-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground8-back.jpg",
+    "sha256": "2e724911c86b7b36072b3139be58218b8722d4ca35b25078c73aeebb85e11d5d"
+   },
+   "qr_verified": true
+  },
+  "pet-ground9": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 9,
+   "shortcode": "pg9",
+   "qr_payload": "https://held.press/p/pg9",
+   "room": "https://held.press/pet/ground/9/",
+   "front": {
+    "r2_key": "cards/pet-ground9-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground9-front.jpg",
+    "sha256": "4a71b7d10bebde640e0a130167b1086e308a858b076e22ffdaeb7a9f09906199"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground9-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground9-back.jpg",
+    "sha256": "9a9610452a95ca7c95eb5f1d133eacc1610554cdd0324a1ef1fe5cb2d73cf6d6"
+   },
+   "qr_verified": true
+  },
+  "pet-ground10": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 10,
+   "shortcode": "pg10",
+   "qr_payload": "https://held.press/p/pg10",
+   "room": "https://held.press/pet/ground/10/",
+   "front": {
+    "r2_key": "cards/pet-ground10-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground10-front.jpg",
+    "sha256": "9d771e448110b878f0f2253ae5dfd4c33e5f67bbc26b79fd996eb3ef9d0a392e"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground10-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground10-back.jpg",
+    "sha256": "2ad3d2c301fe484ce08502ce59286e57d2f9d35471784655f19eb8a1da19bbbb"
+   },
+   "qr_verified": true
+  },
+  "pet-ground11": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 11,
+   "shortcode": "pg11",
+   "qr_payload": "https://held.press/p/pg11",
+   "room": "https://held.press/pet/ground/11/",
+   "front": {
+    "r2_key": "cards/pet-ground11-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground11-front.jpg",
+    "sha256": "882b344b6d9a756b79aa230ddd6c24a2d74edf74afe77813ed1b672a611793f8"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground11-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground11-back.jpg",
+    "sha256": "0622f70d157432c154c11f086f72a84e7596f7c1515f54b22b4bc8c370d75ad1"
+   },
+   "qr_verified": true
+  },
+  "pet-ground12": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 12,
+   "shortcode": "pg12",
+   "qr_payload": "https://held.press/p/pg12",
+   "room": "https://held.press/pet/ground/12/",
+   "front": {
+    "r2_key": "cards/pet-ground12-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground12-front.jpg",
+    "sha256": "2810a78288aa12386b7bd344881a8a298840555d6cca3913de0b3c8f8909164d"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground12-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground12-back.jpg",
+    "sha256": "76d219361a97a10038355685a0e6c165ba972fee610a65171cc7ea2fb64d50ca"
+   },
+   "qr_verified": true
+  },
+  "pet-ground13": {
+   "deck": "pet",
+   "suit": "GROUND",
+   "n": 13,
+   "shortcode": "pg13",
+   "qr_payload": "https://held.press/p/pg13",
+   "room": "https://held.press/pet/ground/13/",
+   "front": {
+    "r2_key": "cards/pet-ground13-front.jpg",
+    "url": "https://media.held.press/cards/pet-ground13-front.jpg",
+    "sha256": "fe17d3fc91c5c56a1a985340608a24c6d7002e3dbd1dbe162247317cd0e8fec7"
+   },
+   "back": {
+    "r2_key": "cards/pet-ground13-back.jpg",
+    "url": "https://media.held.press/cards/pet-ground13-back.jpg",
+    "sha256": "603b19ba6527df9191d6486956b0ac308fe6393e8108a34187e1827e032c96f0"
+   },
+   "qr_verified": true
+  },
+  "pet-feel1": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 1,
+   "shortcode": "pf1",
+   "qr_payload": "https://held.press/p/pf1",
+   "room": "https://held.press/pet/feel/1/",
+   "front": {
+    "r2_key": "cards/pet-feel1-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel1-front.jpg",
+    "sha256": "03858760b1c2f75f8ffcda03f61130eede87beafab5d0533d44b54802b897f44"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel1-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel1-back.jpg",
+    "sha256": "0e31231310f3d692e2a6c36a396c337dfc539b18ec9339e717e74bcaaae134fb"
+   },
+   "qr_verified": true
+  },
+  "pet-feel2": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 2,
+   "shortcode": "pf2",
+   "qr_payload": "https://held.press/p/pf2",
+   "room": "https://held.press/pet/feel/2/",
+   "front": {
+    "r2_key": "cards/pet-feel2-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel2-front.jpg",
+    "sha256": "3f6d4bfda00b3741760ff05bdfd18363ca028fc76ae68161f9bbb150be446a9a"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel2-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel2-back.jpg",
+    "sha256": "d09565ab6fbf5eeac48178e8854b38cd97e1750ad44de28793cf4d5d9cad691a"
+   },
+   "qr_verified": true
+  },
+  "pet-feel3": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 3,
+   "shortcode": "pf3",
+   "qr_payload": "https://held.press/p/pf3",
+   "room": "https://held.press/pet/feel/3/",
+   "front": {
+    "r2_key": "cards/pet-feel3-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel3-front.jpg",
+    "sha256": "a2988a95c5baeba2a46460728445d182c8136f7cd25264a103e5ebf122558e5b"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel3-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel3-back.jpg",
+    "sha256": "2b47749c83a46233a07837c3a13c2c0922effc16e97fb33efb04cab137456dce"
+   },
+   "qr_verified": true
+  },
+  "pet-feel4": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 4,
+   "shortcode": "pf4",
+   "qr_payload": "https://held.press/p/pf4",
+   "room": "https://held.press/pet/feel/4/",
+   "front": {
+    "r2_key": "cards/pet-feel4-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel4-front.jpg",
+    "sha256": "1cf2dbc04d495b99c657fc49c4f05305ac9d48068032d3aa6d6005f06d6a0b07"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel4-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel4-back.jpg",
+    "sha256": "3fe3ed98feaedd07ca2cd203f64c624e533eabf4bd1e7f96822d88ef34b7c2db"
+   },
+   "qr_verified": true
+  },
+  "pet-feel5": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 5,
+   "shortcode": "pf5",
+   "qr_payload": "https://held.press/p/pf5",
+   "room": "https://held.press/pet/feel/5/",
+   "front": {
+    "r2_key": "cards/pet-feel5-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel5-front.jpg",
+    "sha256": "64d81481063c1ef5d15d004e1d2682b93b59fa4d990597b05c60317251d0f978"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel5-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel5-back.jpg",
+    "sha256": "a769692419557622a045f05df64ade07cfa65ca87c914b0e5f46c269e70e203a"
+   },
+   "qr_verified": true
+  },
+  "pet-feel6": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 6,
+   "shortcode": "pf6",
+   "qr_payload": "https://held.press/p/pf6",
+   "room": "https://held.press/pet/feel/6/",
+   "front": {
+    "r2_key": "cards/pet-feel6-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel6-front.jpg",
+    "sha256": "7dbbf46e1cbff167c12d3fc4f43f55a6c91783f8ff0356bf877d5d92d56e66f2"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel6-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel6-back.jpg",
+    "sha256": "15c3524025172814ba67d1d9f542ddf9e222c3e2cbfe6ecc1e2cc2facc5d8377"
+   },
+   "qr_verified": true
+  },
+  "pet-feel7": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 7,
+   "shortcode": "pf7",
+   "qr_payload": "https://held.press/p/pf7",
+   "room": "https://held.press/pet/feel/7/",
+   "front": {
+    "r2_key": "cards/pet-feel7-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel7-front.jpg",
+    "sha256": "54c7301fb19dfc8f7a595217a89b247a522cba0d1558643fd77a22d5217d24b6"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel7-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel7-back.jpg",
+    "sha256": "c2156527f2542c66e623d176c47aa2c60568d8db8a8b91b412c10430a9d7687a"
+   },
+   "qr_verified": true
+  },
+  "pet-feel8": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 8,
+   "shortcode": "pf8",
+   "qr_payload": "https://held.press/p/pf8",
+   "room": "https://held.press/pet/feel/8/",
+   "front": {
+    "r2_key": "cards/pet-feel8-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel8-front.jpg",
+    "sha256": "5be5fd92dc0e85aeb28d1702569f5fa43d7b23b5964172118fb3b3f5630b7edf"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel8-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel8-back.jpg",
+    "sha256": "6c1d71f1fc10ebe0b9aa18ecdf82f303fdab65d0dd27058902786d8fe44c97d2"
+   },
+   "qr_verified": true
+  },
+  "pet-feel9": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 9,
+   "shortcode": "pf9",
+   "qr_payload": "https://held.press/p/pf9",
+   "room": "https://held.press/pet/feel/9/",
+   "front": {
+    "r2_key": "cards/pet-feel9-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel9-front.jpg",
+    "sha256": "9945851cb70aeaabe668e25d18b548a2a3b40ed1f93ca87c7a2e1c8c5e8b5160"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel9-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel9-back.jpg",
+    "sha256": "6ce659800e6985f76a93b446ddc8a147f4167ae2ae3ad3ac9489aae6f3eaa4a9"
+   },
+   "qr_verified": true
+  },
+  "pet-feel10": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 10,
+   "shortcode": "pf10",
+   "qr_payload": "https://held.press/p/pf10",
+   "room": "https://held.press/pet/feel/10/",
+   "front": {
+    "r2_key": "cards/pet-feel10-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel10-front.jpg",
+    "sha256": "f3b63be10a1225664cdd74c3d82c8bda4cdb14c53546b06b2dfac2d20a8bc95b"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel10-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel10-back.jpg",
+    "sha256": "30ffb7551e5cec19f4bd035a4cd2afc367250fb7b540b579d797dbe886256511"
+   },
+   "qr_verified": true
+  },
+  "pet-feel11": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 11,
+   "shortcode": "pf11",
+   "qr_payload": "https://held.press/p/pf11",
+   "room": "https://held.press/pet/feel/11/",
+   "front": {
+    "r2_key": "cards/pet-feel11-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel11-front.jpg",
+    "sha256": "af5ac984084c0ba05c3e3a88c09a8f06fcd70e501fcc89dffaf7859b371c4f24"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel11-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel11-back.jpg",
+    "sha256": "998dee148501602646dc20e119432c86f84d4025d2f5e61c7795c6c47992c2ae"
+   },
+   "qr_verified": true
+  },
+  "pet-feel12": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 12,
+   "shortcode": "pf12",
+   "qr_payload": "https://held.press/p/pf12",
+   "room": "https://held.press/pet/feel/12/",
+   "front": {
+    "r2_key": "cards/pet-feel12-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel12-front.jpg",
+    "sha256": "822abd1ddd025911836b38532b677f235ce1b3ff3826b262b64f1c69abbcafff"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel12-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel12-back.jpg",
+    "sha256": "087e2f1cec79f69e2808842dfcaccbf189725670781668f616acb81ef6dc2108"
+   },
+   "qr_verified": true
+  },
+  "pet-feel13": {
+   "deck": "pet",
+   "suit": "FEEL",
+   "n": 13,
+   "shortcode": "pf13",
+   "qr_payload": "https://held.press/p/pf13",
+   "room": "https://held.press/pet/feel/13/",
+   "front": {
+    "r2_key": "cards/pet-feel13-front.jpg",
+    "url": "https://media.held.press/cards/pet-feel13-front.jpg",
+    "sha256": "c66b1910543005608a11816acf4cbdd338036c96766556ef7f9adb3219f9191f"
+   },
+   "back": {
+    "r2_key": "cards/pet-feel13-back.jpg",
+    "url": "https://media.held.press/cards/pet-feel13-back.jpg",
+    "sha256": "f32d61e62491abbaecd56df73496f20e6af979783fe00ce98599cf31513284f0"
+   },
+   "qr_verified": true
+  },
+  "pet-remember1": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 1,
+   "shortcode": "pr1",
+   "qr_payload": "https://held.press/p/pr1",
+   "room": "https://held.press/pet/remember/1/",
+   "front": {
+    "r2_key": "cards/pet-remember1-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember1-front.jpg",
+    "sha256": "e47c4bfbab700d5c4b19c5c069f08478cc922f658a5aab7305bfb7b1b9925d27"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember1-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember1-back.jpg",
+    "sha256": "4140df3b885324182edb3840802f0296528eeb761e518487fa0fa0dd6d4baec0"
+   },
+   "qr_verified": true
+  },
+  "pet-remember2": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 2,
+   "shortcode": "pr2",
+   "qr_payload": "https://held.press/p/pr2",
+   "room": "https://held.press/pet/remember/2/",
+   "front": {
+    "r2_key": "cards/pet-remember2-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember2-front.jpg",
+    "sha256": "ec2e6b810ceff6d31f79fdd95553e53c128c0a0605ed0d6f25eac1ae482fb2e8"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember2-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember2-back.jpg",
+    "sha256": "912caef35ee9049fd9e96431a32c2fb60f9656e08faee77a3166f5961ae26253"
+   },
+   "qr_verified": true
+  },
+  "pet-remember3": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 3,
+   "shortcode": "pr3",
+   "qr_payload": "https://held.press/p/pr3",
+   "room": "https://held.press/pet/remember/3/",
+   "front": {
+    "r2_key": "cards/pet-remember3-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember3-front.jpg",
+    "sha256": "6b29465a13d639d9b5499e66bb0a960e5120f63f12a282f02ee1bff6cc6c313c"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember3-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember3-back.jpg",
+    "sha256": "6e67716b70da64c860cfd5ff9f7fed8ec51f23e4eb6a79f67dfd7b1fbfe2fbc4"
+   },
+   "qr_verified": true
+  },
+  "pet-remember4": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 4,
+   "shortcode": "pr4",
+   "qr_payload": "https://held.press/p/pr4",
+   "room": "https://held.press/pet/remember/4/",
+   "front": {
+    "r2_key": "cards/pet-remember4-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember4-front.jpg",
+    "sha256": "f4ca3c7358012657c15668c25df228e3d0537f3dc5556ad1f21da666ee6d4092"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember4-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember4-back.jpg",
+    "sha256": "361953d63d617cff42cc3dbfdadff05573c2a80dd5ec4200c997b3ae1b2bc07e"
+   },
+   "qr_verified": true
+  },
+  "pet-remember5": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 5,
+   "shortcode": "pr5",
+   "qr_payload": "https://held.press/p/pr5",
+   "room": "https://held.press/pet/remember/5/",
+   "front": {
+    "r2_key": "cards/pet-remember5-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember5-front.jpg",
+    "sha256": "aebe5b82c5175c73d60da8acda09824f710ecf68b5225ca8a161371d8648673e"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember5-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember5-back.jpg",
+    "sha256": "30ca0eda3d49cc157e5d8b15c8918319c72cef816873f3d20ed6941dda9fb469"
+   },
+   "qr_verified": true
+  },
+  "pet-remember6": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 6,
+   "shortcode": "pr6",
+   "qr_payload": "https://held.press/p/pr6",
+   "room": "https://held.press/pet/remember/6/",
+   "front": {
+    "r2_key": "cards/pet-remember6-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember6-front.jpg",
+    "sha256": "a51e65a35652f3d0986c8f34c5d2abeb66d67739625d7248c68fdcfa9f7a3656"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember6-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember6-back.jpg",
+    "sha256": "a0a0b20b01ccd5034319d62bc03a004a67893ee61c48db6a3f4047f469889caa"
+   },
+   "qr_verified": true
+  },
+  "pet-remember7": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 7,
+   "shortcode": "pr7",
+   "qr_payload": "https://held.press/p/pr7",
+   "room": "https://held.press/pet/remember/7/",
+   "front": {
+    "r2_key": "cards/pet-remember7-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember7-front.jpg",
+    "sha256": "8884ecce10d05ebfc566ba1fdd508ada3dea0956f72d34562d0d865a58bfa529"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember7-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember7-back.jpg",
+    "sha256": "4c9d456d2f6f743f2b7e9f6bc4b81172923167dadb8697295adc6cddb42e166f"
+   },
+   "qr_verified": true
+  },
+  "pet-remember8": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 8,
+   "shortcode": "pr8",
+   "qr_payload": "https://held.press/p/pr8",
+   "room": "https://held.press/pet/remember/8/",
+   "front": {
+    "r2_key": "cards/pet-remember8-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember8-front.jpg",
+    "sha256": "06f8e4faee328002ec93c66264e0cb45ad5fe14677b8e1e534c8d4d5559b3b1c"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember8-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember8-back.jpg",
+    "sha256": "c7dca1e1b147756b76b88eb84eb65cf2c091a05c2e36176d2a785b35acaabb7f"
+   },
+   "qr_verified": true
+  },
+  "pet-remember9": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 9,
+   "shortcode": "pr9",
+   "qr_payload": "https://held.press/p/pr9",
+   "room": "https://held.press/pet/remember/9/",
+   "front": {
+    "r2_key": "cards/pet-remember9-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember9-front.jpg",
+    "sha256": "3d1f6fa892d72629542d63562c99b60832335144e46b0b780f30f31026801145"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember9-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember9-back.jpg",
+    "sha256": "58eac0ebf4d6e7ab33f3b4376a90d3e593043cec6dc12c32f8481791353c787b"
+   },
+   "qr_verified": true
+  },
+  "pet-remember10": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 10,
+   "shortcode": "pr10",
+   "qr_payload": "https://held.press/p/pr10",
+   "room": "https://held.press/pet/remember/10/",
+   "front": {
+    "r2_key": "cards/pet-remember10-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember10-front.jpg",
+    "sha256": "5eaa63933846c8710375567388821b2b9ea53218922c0a3ce19f7f2abfec739b"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember10-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember10-back.jpg",
+    "sha256": "b14f23496c8c7af4897d964f630d1fb05d05d357089b4ef4d29d09b37370c892"
+   },
+   "qr_verified": true
+  },
+  "pet-remember11": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 11,
+   "shortcode": "pr11",
+   "qr_payload": "https://held.press/p/pr11",
+   "room": "https://held.press/pet/remember/11/",
+   "front": {
+    "r2_key": "cards/pet-remember11-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember11-front.jpg",
+    "sha256": "cb2eda68b0b4c1e0bae8d031f6c6092aac801ef5a64c6368942783244cc15e61"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember11-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember11-back.jpg",
+    "sha256": "509e0526f2d3e0e946320afee8479e2b45b9d51a043a40967d6725b83ab4d961"
+   },
+   "qr_verified": true
+  },
+  "pet-remember12": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 12,
+   "shortcode": "pr12",
+   "qr_payload": "https://held.press/p/pr12",
+   "room": "https://held.press/pet/remember/12/",
+   "front": {
+    "r2_key": "cards/pet-remember12-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember12-front.jpg",
+    "sha256": "6299674225a6e16f4787279144cde03e88697e29fb28046bb695eb56aa9e52d3"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember12-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember12-back.jpg",
+    "sha256": "13deebc99b2fd1a05b40640cc08f0bbfc73c71a41eec0838ac06f96c18e27820"
+   },
+   "qr_verified": true
+  },
+  "pet-remember13": {
+   "deck": "pet",
+   "suit": "REMEMBER",
+   "n": 13,
+   "shortcode": "pr13",
+   "qr_payload": "https://held.press/p/pr13",
+   "room": "https://held.press/pet/remember/13/",
+   "front": {
+    "r2_key": "cards/pet-remember13-front.jpg",
+    "url": "https://media.held.press/cards/pet-remember13-front.jpg",
+    "sha256": "e81f3a10fd4f812419cb0a5077fd732d3cabd7ad7aa4777ddbb173aa8bc1b14c"
+   },
+   "back": {
+    "r2_key": "cards/pet-remember13-back.jpg",
+    "url": "https://media.held.press/cards/pet-remember13-back.jpg",
+    "sha256": "38fabc6fb8300762b55f5255a37678691fcae4ee38e658b40fbaac03ec1a4bce"
+   },
+   "qr_verified": true
+  },
+  "pet-tend1": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 1,
+   "shortcode": "pt1",
+   "qr_payload": "https://held.press/p/pt1",
+   "room": "https://held.press/pet/tend/1/",
+   "front": {
+    "r2_key": "cards/pet-tend1-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend1-front.jpg",
+    "sha256": "aaa46ae1a76254eaff7f1907c069c1623ad4f4dd37bbc0b086772a3d74b4834b"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend1-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend1-back.jpg",
+    "sha256": "5c825ad940671c33c33c4a42d17395017c436b6acd231f8c94da4759cf640c08"
+   },
+   "qr_verified": true
+  },
+  "pet-tend2": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 2,
+   "shortcode": "pt2",
+   "qr_payload": "https://held.press/p/pt2",
+   "room": "https://held.press/pet/tend/2/",
+   "front": {
+    "r2_key": "cards/pet-tend2-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend2-front.jpg",
+    "sha256": "04143efc4622e129271fb41005619556a668b204cce12bd11170ff62041f2aa5"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend2-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend2-back.jpg",
+    "sha256": "e60bf859c4a8d71526824b25de7e688cb40a3534e2ff556708ea048874db0597"
+   },
+   "qr_verified": true
+  },
+  "pet-tend3": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 3,
+   "shortcode": "pt3",
+   "qr_payload": "https://held.press/p/pt3",
+   "room": "https://held.press/pet/tend/3/",
+   "front": {
+    "r2_key": "cards/pet-tend3-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend3-front.jpg",
+    "sha256": "833915e0252bd33b09cfa3d47aa242de5fe1a09cf5e2ce873aece74719e858d1"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend3-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend3-back.jpg",
+    "sha256": "7d9c000fd392a99659f4b37912fc0f5bc40a76055d407d94655f252bdb07f7e6"
+   },
+   "qr_verified": true
+  },
+  "pet-tend4": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 4,
+   "shortcode": "pt4",
+   "qr_payload": "https://held.press/p/pt4",
+   "room": "https://held.press/pet/tend/4/",
+   "front": {
+    "r2_key": "cards/pet-tend4-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend4-front.jpg",
+    "sha256": "230da2bd3829d81c9852ca71fdd8ae6d2d49f6e3cba887cd65b4a653055d226d"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend4-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend4-back.jpg",
+    "sha256": "59d292dcfd78559f29d001e901560cf4b64f76f6cab51322abfa6beb3f2dd1db"
+   },
+   "qr_verified": true
+  },
+  "pet-tend5": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 5,
+   "shortcode": "pt5",
+   "qr_payload": "https://held.press/p/pt5",
+   "room": "https://held.press/pet/tend/5/",
+   "front": {
+    "r2_key": "cards/pet-tend5-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend5-front.jpg",
+    "sha256": "bdb3d4e46e3da351d6e1d4f367231b8e20ea198ca7a81ba80f2ab236ebac109d"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend5-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend5-back.jpg",
+    "sha256": "fe913477eaa04fa989b12505350ee9f1bc8dfb592ad54ba719b92cb80548ba1b"
+   },
+   "qr_verified": true
+  },
+  "pet-tend6": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 6,
+   "shortcode": "pt6",
+   "qr_payload": "https://held.press/p/pt6",
+   "room": "https://held.press/pet/tend/6/",
+   "front": {
+    "r2_key": "cards/pet-tend6-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend6-front.jpg",
+    "sha256": "ee39a2ce2ef58c4e4a1550202052607f7b01bbc873db5b8b3d1d92934fc602d7"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend6-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend6-back.jpg",
+    "sha256": "5ca6044a3e3f6582d200f57f78e87d46d423d963e51a5f7557589fdb5cd83482"
+   },
+   "qr_verified": true
+  },
+  "pet-tend7": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 7,
+   "shortcode": "pt7",
+   "qr_payload": "https://held.press/p/pt7",
+   "room": "https://held.press/pet/tend/7/",
+   "front": {
+    "r2_key": "cards/pet-tend7-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend7-front.jpg",
+    "sha256": "98a543447d9979468d46944e1efae810b846bfdf16d1291a1cda9ae4016b7a3d"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend7-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend7-back.jpg",
+    "sha256": "17763105b9831f31fc29bd071c4eb3d4ae832be54b340f273056fb1d5a1361f3"
+   },
+   "qr_verified": true
+  },
+  "pet-tend8": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 8,
+   "shortcode": "pt8",
+   "qr_payload": "https://held.press/p/pt8",
+   "room": "https://held.press/pet/tend/8/",
+   "front": {
+    "r2_key": "cards/pet-tend8-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend8-front.jpg",
+    "sha256": "500cdd4caaaa497fa9a0f7fe252fda0db30372cdaa708d6055532e607be84367"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend8-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend8-back.jpg",
+    "sha256": "8af88fe59c51b7555d70cb62c5d6a1827e582c801d8653d1f6a2363edd880e60"
+   },
+   "qr_verified": true
+  },
+  "pet-tend9": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 9,
+   "shortcode": "pt9",
+   "qr_payload": "https://held.press/p/pt9",
+   "room": "https://held.press/pet/tend/9/",
+   "front": {
+    "r2_key": "cards/pet-tend9-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend9-front.jpg",
+    "sha256": "3f03037d0fe454b823950696b74482f88c71a74a088478ef7325f1cb68f3b574"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend9-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend9-back.jpg",
+    "sha256": "b0efc0314125bed269559c239f6a70b7a6541ea2f8c3967eb4917f2b969bbe44"
+   },
+   "qr_verified": true
+  },
+  "pet-tend10": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 10,
+   "shortcode": "pt10",
+   "qr_payload": "https://held.press/p/pt10",
+   "room": "https://held.press/pet/tend/10/",
+   "front": {
+    "r2_key": "cards/pet-tend10-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend10-front.jpg",
+    "sha256": "b8b05c8bd43bb06abc2fe520e0c2f865c7e4db6194dc58fa46751a8ae81ecd74"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend10-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend10-back.jpg",
+    "sha256": "eda54fddb36a0b9e5577f38727c912d5a125331f181510bb4349fd27695b137d"
+   },
+   "qr_verified": true
+  },
+  "pet-tend11": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 11,
+   "shortcode": "pt11",
+   "qr_payload": "https://held.press/p/pt11",
+   "room": "https://held.press/pet/tend/11/",
+   "front": {
+    "r2_key": "cards/pet-tend11-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend11-front.jpg",
+    "sha256": "1467b74db1ae12599389c3076009119d333a5dd9053eb266155b796b9629cbe4"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend11-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend11-back.jpg",
+    "sha256": "9d347734b5a9a6787943609f84ddbf1f7d6bd8c4ab11b1593ba232d5537210ca"
+   },
+   "qr_verified": true
+  },
+  "pet-tend12": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 12,
+   "shortcode": "pt12",
+   "qr_payload": "https://held.press/p/pt12",
+   "room": "https://held.press/pet/tend/12/",
+   "front": {
+    "r2_key": "cards/pet-tend12-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend12-front.jpg",
+    "sha256": "72bf14537811c6339e3ead3b80c382c176405b94e4e313cb5f67d6b9b1460b08"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend12-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend12-back.jpg",
+    "sha256": "a09368ab202de82201d1838875c17acb6a9741bca5157ffe15c42132db661a20"
+   },
+   "qr_verified": true
+  },
+  "pet-tend13": {
+   "deck": "pet",
+   "suit": "TEND",
+   "n": 13,
+   "shortcode": "pt13",
+   "qr_payload": "https://held.press/p/pt13",
+   "room": "https://held.press/pet/tend/13/",
+   "front": {
+    "r2_key": "cards/pet-tend13-front.jpg",
+    "url": "https://media.held.press/cards/pet-tend13-front.jpg",
+    "sha256": "40614b331a8eb82b68274d505c1d600a0a72bd37cec9eb6b1d927d558d832a3c"
+   },
+   "back": {
+    "r2_key": "cards/pet-tend13-back.jpg",
+    "url": "https://media.held.press/cards/pet-tend13-back.jpg",
+    "sha256": "bade9b78d9a84986ef2fdc1b693558c14e627ad0e238eb361af217a03b11026e"
+   },
+   "qr_verified": true
+  }
+ }
+}

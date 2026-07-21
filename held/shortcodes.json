@@ -1,0 +1,33 @@
+{
+ "namespace": "https://held.press/p/",
+ "decks": {
+  "grief": {
+   "prefix": "",
+   "suits": {
+    "g": "ground",
+    "f": "feel",
+    "r": "remember",
+    "t": "tend"
+   },
+   "printed": true,
+   "qr_status": "verified (g8, r6 need physical scan)"
+  },
+  "pet": {
+   "prefix": "p",
+   "suits": {
+    "g": "ground",
+    "f": "feel",
+    "r": "remember",
+    "t": "tend"
+   },
+   "printed": false,
+   "qr_status": "verified digitally 2026-07-21 (zbar, 100% + 50% scale, 52/52 pass; backs in R2 cards/ are regenerated, collision-free; shortlinks + rooms all live; physical proof scan pending)"
+  },
+  "soul": {
+   "prefix": "s",
+   "suits": "TBD — allocate when suits are named",
+   "printed": false,
+   "qr_status": "reserved"
+  }
+ }
+}
